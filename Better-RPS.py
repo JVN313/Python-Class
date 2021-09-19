@@ -25,11 +25,15 @@ while playing:
         print("You Won!")
         answer = options[random.randrange(0,3)]
         user_input = input("To play again type Rock, Paper, Scissors, or Q to quit the game: ").upper()
+    elif user_input not in options:
+        print("Invalid Input")
+        answer = options[random.randrange(0,3)]
+        user_input = input("To play again type Rock, Paper, Scissors, or Q to quit the game: ").upper()
     else:
         computer_wins+=1
         print("Sorry You Lost :( ")
         answer = options[random.randrange(0,3)]
         user_input = input("To play again type Rock, Paper, Scissors, or Q to quit the game: ").upper()
     
-print("You Won This "+str(player_wins)+" Many Times. And Lost This "+str(computer_wins)+" Many Times")
+print("You Won "+str(player_wins)+" Time(s). And Lost "+str(computer_wins)+" Time(s)")
 print("Thanks For Playing!")
