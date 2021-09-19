@@ -31,7 +31,5 @@ while playing:
         answer = options[random.randrange(0,3)]
         user_input = input("To play again type Rock, Paper, Scissors, or Q to quit the game: ").upper()
     
-
-
 print("You Won This "+str(player_wins)+" Many Times. And Lost This "+str(computer_wins)+" Many Times")
 print("Thanks For Playing!")
