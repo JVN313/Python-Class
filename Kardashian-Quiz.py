@@ -6,9 +6,12 @@ score = 0
 
 if playing.upper() == "YES":
     print("Great Let's Play")
-else:
+elif playing.upper() == "No":
     print("Okay Thanks For Stopping By!")
     quit()
+else:
+    print("Invalid Input")
+    playing = input("Would You Like To Play The Game " + player+"? ")
 
 answer1 = input("What Year Did Keeping Up With The Kardashians Start? \n a) 2003 \n b) 2005 \n c) 2007 \n ")
 
