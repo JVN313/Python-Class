@@ -6,7 +6,7 @@ score = 0
 
 if playing.upper() == "YES":
     print("Great Let's Play")
-elif playing.upper() == "No":
+elif playing.upper() == "NO":
     print("Okay Thanks For Stopping By!")
     quit()
 else:
