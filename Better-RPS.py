@@ -8,19 +8,19 @@ answer = options[random.randrange(0,3)]
 user_input = input("Type Rock, Paper, Scissors, or Q to quit the game: ").upper()
 
 while playing:
-    if user_input == "Q":
+    if user_input == "Q" or user_input =="QUIT":
         playing = False
-    elif user_input == "PAPER" and answer == "ROCK":
+    elif user_input == "PAPER" and answer == options[0]:
         player_wins+=1
         print("You Won!")
         answer = options[random.randrange(0,3)]
         user_input = input("To play again type Rock, Paper, Scissors, or Q to quit the game: ").upper()
-    elif user_input == "ROCK" and answer == "SCISSORS":
+    elif user_input == "ROCK" and answer == options[2]:
         player_wins+=1
         print("You Won!")
         answer = options[random.randrange(0,3)]
         user_input = input("To play again type Rock, Paper, Scissors, or Q to quit the game: ").upper()
-    elif user_input == "SCISSORS" and answer == "PAPER":
+    elif user_input == "SCISSORS" and answer == options[1]:
         player_wins+=1
         print("You Won!")
         answer = options[random.randrange(0,3)]
