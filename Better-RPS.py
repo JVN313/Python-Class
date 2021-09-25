@@ -1,5 +1,6 @@
 import random
 
+# Game Variables
 playing = True
 player_wins = 0
 computer_wins = 0
@@ -9,6 +10,7 @@ short_options = ["R","P","S"]
 answer = options[random.randrange(0,3)]
 user_input = input("Type Rock, Paper, Scissors, or Q to quit the game: ").upper()
 
+# Game Functions
 def player_win():
     global player_wins
     player_wins+=1
@@ -28,6 +30,7 @@ def score_board():
     score_board_show.close()
     score_board_add.close()
 
+# Game Loop
 while playing:
     if user_input == "Q" or user_input =="QUIT":
         playing = False
