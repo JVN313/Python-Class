@@ -1,6 +1,7 @@
 #Working with Lists, Functions, and Classes
 #List Functions .append, .extend, .insert(1,2), .remove, .clear, .pop, .count, .sort, .copy
 import random
+import requests
 randomLists = [
     [1, 2, 3],
     ["tough", "Hard", "strong "]
@@ -37,6 +38,13 @@ def brick_layer():
         print("Thats enough for the four walls and roof")
     else:
         print("That's not enough for, four walls and a roof")
+
+# Takes an image url and downloads the image and saves the file as image.jpg
+def image_getter(url):
+     r = requests.get(url)
+     image_open= open("image.jpg", "wb")
+     image_write = image_open.write(r.content)
+
 
 
 class game:
