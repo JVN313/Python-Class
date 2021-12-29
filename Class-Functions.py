@@ -44,6 +44,7 @@ def image_getter(url):
      r = requests.get(url)
      image_open= open("image.jpg", "wb")
      image_write = image_open.write(r.content)
+     image_open.close()
 
 
 
@@ -58,3 +59,6 @@ class player:
         self.name = name
         self.age = age
         self.console = console
+
+
+image_getter("https://scontent-lga3-2.xx.fbcdn.net/v/t1.6435-9/121973465_10223750385964889_8574075742975868828_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=b629P2c50F8AX_RZb6N&_nc_ht=scontent-lga3-2.xx&oh=bfc413e9162ed2ca5f97b89520489bb7&oe=6196E92A")

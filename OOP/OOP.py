@@ -1,28 +1,48 @@
+import csv
+
 class Item:
-    luck = 2
+    tax_rate = 0.06
     all = []
 
-    def __init__(self,time: int, name="Placer",):
-        assert isinstance(time,int) == True, "Not A Number"
+    def __init__(self, name: str, price: float, quantity: int):
+        # Validations on recieved arguments
+        assert price >= 0, f"{price} is not greater than, or equal to 0"
+        assert quantity >= 0, f"{quantity} is not greater than, or equal to 0"
+        assert isinstance(name,str), f"{name} must be a string"
         
+        # Asign to self object
         self.name = name
-        self.time = time
+        self.price = price
+        self.quantity = quantity
+
         Item.all.append(self)
 
-    def calculate_total_price(self, x, y):
-        return x * y
-    def new_time(self):
-        self.time = self.time * 5
-    def new_luck(self):
-        return self.luck * 5
+    def sold(self, amount_sold):
+        self.quantity = self.quantity - amount_sold
+
+    def inventory(self):
+        if self.quantity <= 0:
+            print(f"{self.name} is currently out of stock")
+        else:
+            print(f"Current Inventory {self.quantity}")
+
+    def sale(self):
+        self.price = self.price * self.tax_rate
+
+    @classmethod
+    def get_from_csv(cls):
+        with open("items.csv", "r") as f:
+            reader = csv.DictReader(f)
+            items = list(reader)
+
+        for item in items:
+            Item(name = item.get("name"),
+                price = float(item.get("price")),
+                quantity = int(item.get("quantity"))
+                )
 
     def __repr__(self):
-        return f"Item({self.name},{self.time})"
+        return f"Item('{self.name}',{self.price}, {self.quantity})"
 
-
-item1 = Item(5, "FIVE")
-item2 = Item(6, "SIX")
-item3 = Item(7, "SEVEN")
-item4 = Item(8, "EIGHT")
-item5 = Item(9, "NINE")
+Item.get_from_csv()
 print(Item.all)
